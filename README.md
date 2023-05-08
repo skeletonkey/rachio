@@ -1,0 +1,2 @@
+# rachio
+Rachio API library
