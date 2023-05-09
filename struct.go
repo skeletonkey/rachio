@@ -102,7 +102,9 @@ type ScheduleRule struct {
 	StartDay         int      `json:"startDay"`
 	StartMonth       int      `json:"startMonth"`
 	StartYear        int      `json:"startYear"`
+	Summary          string   `json:"summary"`
 	TotalDuration    int      `json:"totalDuration"`
+	Type             string   `json:"type"`
 	Zones            []Zone   `json:"zones"`
 }
 
