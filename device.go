@@ -2,7 +2,6 @@ package rachio
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/url"
 	"strconv"
 )
@@ -32,13 +31,11 @@ func (c Client) GetEvents(deviceId string, start int64, end int64) (events []Eve
 	v.Add("startTime", strconv.FormatInt(start, 10))
 	v.Add("endTime", strconv.FormatInt(end, 10))
 	fullUrl += "?" + v.Encode()
-	fmt.Printf("URL: %s\n", fullUrl)
 
 	body, err := c.get(fullUrl)
 	if err != nil {
 		return events, err
 	}
-	fmt.Println(string(body))
 	err = json.Unmarshal(body, &events)
 
 	return events, err
@@ -56,7 +53,6 @@ func (c Client) GetDeviceInfo(deviceID string) (device Device, err error) {
 		return device, err
 	}
 	err = json.Unmarshal(body, &device)
-	fmt.Printf("Body: %s\n\n\n", body)
 
 	return device, err
 }

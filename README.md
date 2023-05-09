@@ -24,10 +24,10 @@ There is a concerted effort to properly expose all data returned via the API; ho
 |  Type  | Complete |
 |:------:|:---------|
 | DELETE | 0%       |
-|  GET   | 42%      | 
+|  GET   | 67%      | 
 |  POST  | 0%       | 
 |  PUT   | 0%       | 
-| TOTAL  | 19%      |
+| TOTAL  | 30%      |
 
 ### v1 - Endpoints
 
@@ -45,16 +45,16 @@ There is a concerted effort to properly expose all data returned via the API; ho
 |                  |  PUT   | /public/device/pause_zone_run                                  |     ❌     |
 |                  |  PUT   | /public/device/resume_zone_run                                 |     ❌     |
 |                  |  GET   | /public/device/:id                                             |     ✅     |
-|       Zone       |  GET   | /public/zone/:id                                               |     ❌     |
+|       Zone       |  GET   | /public/zone/:id                                               |     ✅     |
 |                  |  PUT   | /public/zone/start                                             |     ❌     |
 |                  |  PUT   | /public/zone/start_multiple                                    |     ❌     |
 |                  |  PUT   | /public/zone/setMoisturePercent                                |     ❌     |
 |                  |  PUT   | /public/zone/setMoistureLevel                                  |     ❌     |
-|   ScheduleRule   |  GET   | /public/schedulerule/:id                                       |     ❌     |
+|   ScheduleRule   |  GET   | /public/schedulerule/:id                                       |     ✅     |
 |                  |  PUT   | /public/schedulerule/skip                                      |     ❌     |
 |                  |  PUT   | /public/schedulerule/start                                     |     ❌     |
 |                  |  PUT   | /public/schedulerule/seasonal_adjustment                       |     ❌     |
-| FlexScheduleRule |  GET   | /public/flexschedulerule/:id                                   |     ❌     |
+| FlexScheduleRule |  GET   | /public/flexschedulerule/:id                                   |     ✅     |
 |   Notification   |  GET   | /public/notification/webhook_event_type                        |     ❌     |
 |                  |  GET   | /public/notification/:deviceId/webhook                         |     ❌     |
 |                  |  GET   | /public/notification/webhook/:id                               |     ❌     |
