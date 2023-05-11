@@ -45,15 +45,28 @@ func (c Client) setHeaders(req *http.Request) {
 	req.Header.Add("Content-Type", "application/json")
 }
 
-func (c Client) processHeaders(resp *http.Response) error {
-	var err error
-	if c.RateInfo.Limit, err = strconv.Atoi(resp.Header.Get("X-RateLimit-Limit")); err == nil {
-		if c.RateInfo.Remaining, err = strconv.Atoi(resp.Header.Get("X-RateLimit-Remaining")); err == nil {
-			t, err := time.Parse(time.RFC3339, resp.Header.Get("X-RateLimit-Reset"))
-			if err == nil {
-				c.RateInfo.Reset = t.Unix()
-			}
-
+func (c Client) processHeaders(resp *http.Response) (err error) {
+	limit := resp.Header.Get("X-RateLimit-Limit")
+	if limit != "" {
+		c.RateInfo.Limit, err = strconv.Atoi(limit)
+		if err != nil {
+			return err
+		}
+	}
+	remaining := resp.Header.Get("X-RateLimit-Remaining")
+	if limit != "" {
+		c.RateInfo.Remaining, err = strconv.Atoi(remaining)
+		if err != nil {
+			return err
+		}
+	}
+	reset := resp.Header.Get("X-RateLimit-Reset")
+	if reset != "" {
+		t, err := time.Parse(time.RFC3339, reset)
+		if err == nil {
+			c.RateInfo.Reset = t.Unix()
+		} else {
+			return err
 		}
 	}
 

@@ -2,6 +2,7 @@ package rachio
 
 import (
 	"net/http"
+	"time"
 )
 
 // Event holds specific 'event' information for a device
@@ -175,4 +176,31 @@ type Client struct {
 	bearerToken string
 	RateInfo    *RateInfo
 	httpClient  *http.Client
+}
+
+// ExpDeviceState only holds the 'ExpState' structure
+type ExpDeviceState struct {
+	State ExpState `json:"state"`
+}
+
+// ExpState hold state information of a device
+type ExpState struct {
+	CorrectFirmware          bool          `json:"correctFirmware"`
+	CorrectRainDelay         bool          `json:"correctRainDelay"`
+	CorrectSchedule          bool          `json:"correctSchedule"`
+	DesiredIdleLeakDetection bool          `json:"desiredIdleLeakDetection"`
+	DesiredIdleLeakTime      int           `json:"desiredIdleLeakTime"`
+	DesiredLightBarSetting   string        `json:"desiredLightBarSetting"`
+	DesiredSettleTime        int           `json:"desiredSettleTime"`
+	DesiredState             string        `json:"desiredState"`
+	DeviceId                 string        `json:"deviceId"`
+	FirmwareVersion          string        `json:"firmwareVersion"`
+	FlexNodes                []interface{} `json:"flexNodes"`
+	FlowFirmwareVersion      string        `json:"flowFirmwareVersion"`
+	Health                   string        `json:"health"`
+	LastRun                  time.Time     `json:"lastRun"` // RFC3339 version of the last run time/date
+	NextRun                  time.Time     `json:"nextRun"` // RFC3339 version of the next run time/date
+	RainSensorTripped        bool          `json:"rainSensorTripped"`
+	Rssi                     int           `json:"rssi"`
+	State                    string        `json:"state"`
 }
