@@ -7,6 +7,10 @@ import (
 )
 
 const defaultRateLimit = 1700
+
+// These are hardcoded instead of in a config file as they shouldn't change
+// often and to reduce the need for more dependencies/complications.
+const experimentalURL = "https://cloud-rest.rach.io"
 const publicURL = "https://api.rach.io/1/public"
 
 // New returns a Rachio client allowing for interaction with the Rachio API.

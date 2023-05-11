@@ -2,7 +2,11 @@
 //
 // Currently working on support for all v1 endpoints: https://rachio.readme.io/reference/getting-started
 //
+// # Support
+//
 // Please refer to the Github Repo for overall coverage and reporting issues: https://github.com/skeletonkey/rachio
+//
+// If you encounter any issues using this please provide a Pull Request or submit an Issue.
 //
 // # Rate Limiting
 //
@@ -12,7 +16,8 @@
 //
 // To see how many request are left and when the counter will reset:
 //
-//	rachioClient := rachioNew.New(context.TODO(), "12345678-abcd-1234-abcd-1234567890ab")
+//	rachioClient := rachio.New(context.TODO(), "12345678-abcd-1234-abcd-1234567890ab")
+//
 //	fmt.Printf("Limit: %d\nRemaining: %d\nReset: %s\n", rachioClient.RateInfo.Limit, rachioClient.RateInfo.Remaining, rachioClient.RateInfo.Reset)
 //
 // # Data Objects
@@ -21,7 +26,15 @@
 //
 // # Example
 //
-//	rachioClient := rachioNew.New(context.TODO(), "12345678-abcd-1234-abcd-1234567890ab")
+//	rachioClient := rachio.New(context.TODO(), "12345678-abcd-1234-abcd-1234567890ab")
 //
 //	id, err := rachioClient.GetPersonInfo()
+//
+// # Experimental Commands
+//
+// These are commands that do *not* have documentation and have not been provided with any type of SLA by Rachio. They have been 'discovered' by analysing the Rachio website.
+//
+// All methods that are 'Experimental' start with 'Exp'.
+//
+// Please use these commands cautiously!
 package rachio

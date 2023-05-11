@@ -19,7 +19,11 @@ There is a concerted effort to properly expose all data returned via the API; ho
 
 ## Commands
 
-### v1 - Summary
+### v1
+
+These are the commands that are documented as [v1.0 Rachio API Reference](https://rachio.readme.io/reference/getting-started).
+
+#### Summary
 
 |  Type  | Complete |
 |:------:|:---------|
@@ -29,7 +33,7 @@ There is a concerted effort to properly expose all data returned via the API; ho
 |  PUT   | 0%       | 
 | TOTAL  | 30%      |
 
-### v1 - Endpoints
+#### Endpoints
 
 |     Category     | Method | End Point                                                      | Supported |
 |:----------------:|:------:|:---------------------------------------------------------------|:---------:|
@@ -65,3 +69,11 @@ There is a concerted effort to properly expose all data returned via the API; ho
 *NOTES*
 
 * `forecast` will probably not be implemented.  It's a different data structure and if you need weather data you should probably look to a specific weather app.
+
+### Experimental
+
+These commands are provided for convenience, but there is no guarantee for long term support. The commands have been derived by observing the Rachio web application. There is no official documentation provided for them.
+
+| Method | End Point                  | Description                               |
+|:------:|:---------------------------|:------------------------------------------|
+|  GET   | /device/getDeviceState/:id | Get next run time/date (among other data) |
